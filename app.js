@@ -4,12 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const adminData = require('./routes/admin');
 const shopRoute = require('./routes/shop');
-const expressHbs = require('express-handlebars');
 
 const rootDir = require('./util/path');
 
-app.engine('hbs', expressHbs.engine({extname: 'hbs', layoutsDir: 'views/layout', defaultLayout: 'main-layout'}));
-app.set('view engine', 'hbs');
+app.set('view engine', 'pug');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
